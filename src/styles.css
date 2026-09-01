@@ -4,6 +4,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-surface: var(--surface);
+}
+
 /*
  * Design system definition.
  *
@@ -140,5 +149,63 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+/* ---- AKA System: tema escuro tecnológico (padrão do site) ---- */
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.035 255);
+  --foreground: oklch(0.97 0.01 250);
+  --surface: oklch(0.21 0.038 255);
+  --card: oklch(0.21 0.038 255);
+  --card-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.21 0.038 255);
+  --popover-foreground: oklch(0.97 0.01 250);
+  --primary: oklch(0.72 0.15 220);
+  --primary-foreground: oklch(0.15 0.04 255);
+  --brand: oklch(0.78 0.14 210);
+  --brand-foreground: oklch(0.15 0.04 255);
+  --secondary: oklch(0.27 0.04 255);
+  --secondary-foreground: oklch(0.95 0.01 250);
+  --muted: oklch(0.25 0.035 255);
+  --muted-foreground: oklch(0.72 0.03 250);
+  --accent: oklch(0.3 0.06 230);
+  --accent-foreground: oklch(0.97 0.01 250);
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 250);
+  --border: oklch(0.32 0.035 250 / 60%);
+  --input: oklch(0.32 0.035 250 / 60%);
+  --ring: oklch(0.72 0.15 220);
+}
+
+@utility bg-hero-veil {
+  background-image:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--background) 78%, transparent) 0%,
+      color-mix(in oklab, var(--background) 30%, transparent) 38%,
+      color-mix(in oklab, var(--background) 88%, transparent) 100%
+    );
+}
+
+@utility bg-grid-faint {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--brand) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--brand) 12%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility text-glow {
+  text-shadow: 0 0 32px color-mix(in oklab, var(--brand) 45%, transparent);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 }
