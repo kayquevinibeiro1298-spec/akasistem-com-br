@@ -16,6 +16,7 @@ export function ScrollFrameHero() {
   const [loaded, setLoaded] = useState(0);
   const [ready, setReady] = useState(false);
   const [phrase, setPhrase] = useState(0);
+  const [scrollPct, setScrollPct] = useState(0);
 
   useEffect(() => {
     let alive = true;
@@ -95,6 +96,7 @@ export function ScrollFrameHero() {
         if (p >= ph.at) next = i;
       });
       setPhrase(next);
+      setScrollPct(Math.round(p * 100));
       schedule();
     };
 
@@ -146,7 +148,7 @@ export function ScrollFrameHero() {
             <div className="h-px w-40 bg-border sm:w-64">
               <div
                 className="h-px bg-brand transition-[width] duration-150"
-                style={{ width: `${Math.round(progressRef.current * 100)}%` }}
+                style={{ width: `${scrollPct}%` }}
               />
             </div>
           </div>
