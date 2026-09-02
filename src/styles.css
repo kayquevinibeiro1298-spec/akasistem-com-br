@@ -5,13 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: var(--display-font);
+  --font-sans: var(--sans-font);
+  --font-mono: var(--mono-font);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-surface: var(--surface);
 }
+
 
 /*
  * Design system definition.
@@ -152,31 +153,50 @@
   }
 }
 
-/* ---- AKA System: tema escuro tecnológico (padrão do site) ---- */
+/* ---- AKA System: paleta editorial "paper + petróleo" (site) ---- */
 :root {
-  --radius: 0.5rem;
+  --radius: 0.25rem;
+  --display-font: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --sans-font: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono-font: "IBM Plex Mono", ui-monospace, monospace;
+
+  --background: oklch(0.968 0.005 85);
+  --foreground: oklch(0.24 0.012 250);
+  --surface: oklch(0.99 0.003 85);
+  --card: oklch(0.99 0.003 85);
+  --card-foreground: oklch(0.24 0.012 250);
+  --popover: oklch(0.99 0.003 85);
+  --popover-foreground: oklch(0.24 0.012 250);
+  --primary: oklch(0.42 0.062 225);
+  --primary-foreground: oklch(0.98 0.004 85);
+  --brand: oklch(0.42 0.062 225);
+  --brand-foreground: oklch(0.98 0.004 85);
+  --secondary: oklch(0.93 0.006 85);
+  --secondary-foreground: oklch(0.28 0.012 250);
+  --muted: oklch(0.93 0.006 85);
+  --muted-foreground: oklch(0.47 0.012 250);
+  --accent: oklch(0.91 0.012 225);
+  --accent-foreground: oklch(0.28 0.012 250);
+  --destructive: oklch(0.52 0.16 27);
+  --destructive-foreground: oklch(0.98 0.004 85);
+  --border: oklch(0.32 0.012 250 / 18%);
+  --input: oklch(0.32 0.012 250 / 22%);
+  --ring: oklch(0.42 0.062 225);
+}
+
+/* Escopo do hero: mantém o tema escuro original da animação de frames */
+.hero-scope {
+  --display-font: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --sans-font: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono-font: "JetBrains Mono", ui-monospace, monospace;
   --background: oklch(0.16 0.035 255);
   --foreground: oklch(0.97 0.01 250);
   --surface: oklch(0.21 0.038 255);
-  --card: oklch(0.21 0.038 255);
-  --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.21 0.038 255);
-  --popover-foreground: oklch(0.97 0.01 250);
-  --primary: oklch(0.72 0.15 220);
-  --primary-foreground: oklch(0.15 0.04 255);
   --brand: oklch(0.78 0.14 210);
   --brand-foreground: oklch(0.15 0.04 255);
-  --secondary: oklch(0.27 0.04 255);
-  --secondary-foreground: oklch(0.95 0.01 250);
-  --muted: oklch(0.25 0.035 255);
   --muted-foreground: oklch(0.72 0.03 250);
-  --accent: oklch(0.3 0.06 230);
-  --accent-foreground: oklch(0.97 0.01 250);
-  --destructive: oklch(0.62 0.2 25);
-  --destructive-foreground: oklch(0.98 0.01 250);
   --border: oklch(0.32 0.035 250 / 60%);
-  --input: oklch(0.32 0.035 250 / 60%);
-  --ring: oklch(0.72 0.15 220);
+  font-family: var(--sans-font);
 }
 
 @utility bg-hero-veil {
@@ -189,15 +209,8 @@
     );
 }
 
-@utility bg-grid-faint {
-  background-image:
-    linear-gradient(color-mix(in oklab, var(--brand) 12%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--brand) 12%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-@utility text-glow {
-  text-shadow: 0 0 32px color-mix(in oklab, var(--brand) 45%, transparent);
+@utility rule-top {
+  border-top: 1px solid color-mix(in oklab, var(--foreground) 16%, transparent);
 }
 
 @layer base {
@@ -205,7 +218,8 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: var(--font-sans);
+    font-family: var(--sans-font);
     -webkit-font-smoothing: antialiased;
   }
 }
+
