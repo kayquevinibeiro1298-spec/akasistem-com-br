@@ -167,6 +167,34 @@ function Home() {
       </div>
 
       <div className="relative">
+        <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 sm:px-10">
+            <a href="#empresa" className="inline-flex items-center rounded-lg bg-[#07070b] px-2.5 py-1.5">
+              <img
+                src={logoAsset.url}
+                alt="AKA Tech"
+                className="h-8 w-auto sm:h-10"
+                width={900}
+                height={708}
+              />
+            </a>
+            <nav className="hidden gap-6 font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase md:flex">
+              <a href="#servicos" className="hover:text-brand">Serviços</a>
+              <a href="#processo" className="hover:text-brand">Processo</a>
+              <a href="#tecnologias" className="hover:text-brand">Stack</a>
+              <a href="#faq" className="hover:text-brand">FAQ</a>
+            </nav>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-brand px-4 py-2 text-xs font-medium text-brand-foreground transition-opacity hover:opacity-90"
+            >
+              Orçamento
+            </a>
+          </div>
+        </header>
+
         <Section
           id="empresa"
           eyebrow="Quem somos"
