@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FRAME_URLS } from "@/lib/frames";
+import logoAsset from "@/assets/aka-logo.png.asset.json";
 
 const PHRASES = [
   { at: 0, title: "Sistemas sob medida", sub: "Software que nasce do seu processo." },
