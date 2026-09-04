@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ScrollFrameHero } from "@/components/ScrollFrameHero";
+import logoAsset from "@/assets/aka-logo.png.asset.json";
+
+const WHATSAPP_URL =
+  "https://wa.me/5544999742968?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20AKA%20Tech";
+const EMAIL = "Kayquevinibeiro1298@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,6 +167,34 @@ function Home() {
       </div>
 
       <div className="relative">
+        <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 sm:px-10">
+            <a href="#empresa" className="inline-flex items-center rounded-lg bg-[#07070b] px-2.5 py-1.5">
+              <img
+                src={logoAsset.url}
+                alt="AKA Tech"
+                className="h-8 w-auto sm:h-10"
+                width={900}
+                height={708}
+              />
+            </a>
+            <nav className="hidden gap-6 font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase md:flex">
+              <a href="#servicos" className="hover:text-brand">Serviços</a>
+              <a href="#processo" className="hover:text-brand">Processo</a>
+              <a href="#tecnologias" className="hover:text-brand">Stack</a>
+              <a href="#faq" className="hover:text-brand">FAQ</a>
+            </nav>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-brand px-4 py-2 text-xs font-medium text-brand-foreground transition-opacity hover:opacity-90"
+            >
+              Orçamento
+            </a>
+          </div>
+        </header>
+
         <Section
           id="empresa"
           eyebrow="Quem somos"
@@ -304,37 +337,64 @@ function Home() {
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="mailto:contato@akasystem.com.br?subject=Or%C3%A7amento%20AKA%20System"
-                  className="bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
-                >
-                  Solicitar orçamento
-                </a>
-                <a
-                  href="https://wa.me/5500000000000"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+                >
+                  Falar no WhatsApp (44) 99974-2968
+                </a>
+                <a
+                  href={`mailto:${EMAIL}?subject=Or%C3%A7amento%20AKA%20Tech`}
                   className="border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-brand"
                 >
-                  Falar no WhatsApp
+                  Enviar e-mail
                 </a>
               </div>
+              <dl className="mt-10 grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
+                <div>
+                  <dt className="font-mono text-[11px] tracking-[0.2em] text-brand uppercase">
+                    WhatsApp
+                  </dt>
+                  <dd className="mt-1 text-sm text-foreground">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      (44) 99974-2968
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] tracking-[0.2em] text-brand uppercase">
+                    E-mail
+                  </dt>
+                  <dd className="mt-1 break-all text-sm text-foreground">
+                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
 
         <footer className="border-t border-border px-6 py-10 sm:px-10">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
-            <span className="font-display text-sm tracking-[0.25em] text-foreground uppercase">
-              AKA System
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6">
+            <span className="inline-flex items-center rounded-lg bg-[#07070b] px-3 py-2">
+              <img src={logoAsset.url} alt="AKA Tech" className="h-9 w-auto" />
             </span>
+            <div className="font-mono text-xs leading-relaxed text-muted-foreground">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                WhatsApp (44) 99974-2968
+              </a>
+              <br />
+              <a href={`mailto:${EMAIL}`} className="break-all">
+                {EMAIL}
+              </a>
+            </div>
             <span className="font-mono text-xs text-muted-foreground">
-              Sistemas · Softwares · Automações · Sites
-            </span>
-            <span className="font-mono text-xs text-muted-foreground">
-              © {new Date().getFullYear()} AKA System
+              © {new Date().getFullYear()} AKA Tech · Sistemas · Softwares · Automações · Sites
             </span>
           </div>
         </footer>
+
       </div>
     </main>
   );
