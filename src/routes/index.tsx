@@ -309,37 +309,64 @@ function Home() {
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="mailto:contato@akasystem.com.br?subject=Or%C3%A7amento%20AKA%20System"
-                  className="bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
-                >
-                  Solicitar orçamento
-                </a>
-                <a
-                  href="https://wa.me/5500000000000"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+                >
+                  Falar no WhatsApp (44) 99974-2968
+                </a>
+                <a
+                  href={`mailto:${EMAIL}?subject=Or%C3%A7amento%20AKA%20Tech`}
                   className="border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-brand"
                 >
-                  Falar no WhatsApp
+                  Enviar e-mail
                 </a>
               </div>
+              <dl className="mt-10 grid gap-4 border-t border-border pt-6 sm:grid-cols-2">
+                <div>
+                  <dt className="font-mono text-[11px] tracking-[0.2em] text-brand uppercase">
+                    WhatsApp
+                  </dt>
+                  <dd className="mt-1 text-sm text-foreground">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      (44) 99974-2968
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] tracking-[0.2em] text-brand uppercase">
+                    E-mail
+                  </dt>
+                  <dd className="mt-1 break-all text-sm text-foreground">
+                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
 
         <footer className="border-t border-border px-6 py-10 sm:px-10">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
-            <span className="font-display text-sm tracking-[0.25em] text-foreground uppercase">
-              AKA System
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6">
+            <span className="inline-flex items-center rounded-lg bg-[#07070b] px-3 py-2">
+              <img src={logoAsset.url} alt="AKA Tech" className="h-9 w-auto" />
             </span>
+            <div className="font-mono text-xs leading-relaxed text-muted-foreground">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                WhatsApp (44) 99974-2968
+              </a>
+              <br />
+              <a href={`mailto:${EMAIL}`} className="break-all">
+                {EMAIL}
+              </a>
+            </div>
             <span className="font-mono text-xs text-muted-foreground">
-              Sistemas · Softwares · Automações · Sites
-            </span>
-            <span className="font-mono text-xs text-muted-foreground">
-              © {new Date().getFullYear()} AKA System
+              © {new Date().getFullYear()} AKA Tech · Sistemas · Softwares · Automações · Sites
             </span>
           </div>
         </footer>
+
       </div>
     </main>
   );
