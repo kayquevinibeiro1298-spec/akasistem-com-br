@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FRAME_URLS } from "@/lib/frames";
+import logoAsset from "@/assets/aka-logo.png.asset.json";
 
 const PHRASES = [
   { at: 0, title: "Sistemas sob medida", sub: "Software que nasce do seu processo." },
@@ -121,12 +122,13 @@ export function ScrollFrameHero() {
 
         <div className="relative flex h-full flex-col justify-between px-6 py-8 sm:px-10 sm:py-12">
           <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-md border border-brand/40 bg-brand/10 font-display text-sm tracking-[0.2em] text-brand">
-              A
-            </span>
-            <span className="font-display text-sm tracking-[0.35em] text-foreground/90 uppercase">
-              AKA System
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="AKA Tech"
+              className="h-10 w-auto sm:h-12"
+              width={900}
+              height={708}
+            />
           </div>
 
           <div className="max-w-2xl">
