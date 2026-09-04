@@ -1,5 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ScrollFrameHero } from "@/components/ScrollFrameHero";
+import logoAsset from "@/assets/aka-logo.png.asset.json";
+
+const WHATSAPP_URL =
+  "https://wa.me/5544999742968?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20AKA%20Tech";
+const EMAIL = "Kayquevinibeiro1298@gmail.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({
